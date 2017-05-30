@@ -1,1 +1,4 @@
 tmp.py
+*.pyc
+tools/festival
+tools/speech_tools
