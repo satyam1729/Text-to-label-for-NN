@@ -1,4 +1,5 @@
 #!/bin/bash
+cd tools
 echo "extracting speech_tools"
 tar -xvf speech_tools-2.4-release.tar.gz
 echo "installing speech_tools"
@@ -10,7 +11,7 @@ echo "speech_tools installed"
 cd ..
 echo "extracting festival"
 tar -xvf festival-2.4-release.tar.gz
+echo "installing festival"
 cd festival
 make
 echo "festival installed"
-
