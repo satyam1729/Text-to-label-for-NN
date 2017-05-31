@@ -2,3 +2,5 @@ tmp.py
 *.pyc
 tools/festival
 tools/speech_tools
+data/HTS-demo_CMU-ARCTIC-SLT.tar.bz2
+data/HTS-demo_CMU-ARCTIC-SLT
