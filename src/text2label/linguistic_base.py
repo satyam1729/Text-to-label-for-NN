@@ -62,8 +62,10 @@ class LinguisticBase(object):
         if self.utterance_num != len(output_file_list):
             logger.error('the number of input and output linguistic files should be the same!\n')
             sys.exit(1)
-
+            
         for i in xrange(self.utterance_num):
+            print ori_file_list[i]
+            print self.utterance_num-i
             if not dur_file_list:
                 self.extract_linguistic_features(ori_file_list[i], output_file_list[i], label_type)
             else:

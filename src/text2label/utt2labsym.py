@@ -1,18 +1,14 @@
+#converts the generated festival utts to hts symbol labels
 
-import os
 import numpy, re, sys
-from multiprocessing import Pool
-from binary_io import BinaryIOCollection
-from linguistic_base import LinguisticBase
+from binary_io import BinaryIOCollection#
+from linguistic_base import LinguisticBase#
 
-import lxml
 from lxml import etree
 from lxml.etree import * 
 MODULE_PARSER = etree.XMLParser()
 
 import matplotlib.mlab as mlab
-import math
-
 import logging
 # from logplot.logging_plotting import LoggerPlotter #, MultipleTimeSeriesPlot, SingleWeightMatrixPlot
 
@@ -815,3 +811,23 @@ class HTSLabelNormalisation(LabelNormalisation):
             question = question.replace('\\(\\\\d\\+\\)', '(\d+)')
             question = question.replace('\\(\\[\\\\d\\\\\\.\\]\\+\\)', '([\d\.]+)')
         return question
+                        
+if __name__ == '__main__':
+    
+    qs_file_name = '/afs/inf.ed.ac.uk/group/cstr/projects/blizzard_entries/blizzard2016/straight_voice/Hybrid_duration_experiments/dnn_tts_release/lstm_rnn/data/questions.hed'
+    
+    print   qs_file_name
+    
+    ori_file_list = ['/afs/inf.ed.ac.uk/group/cstr/projects/blizzard_entries/blizzard2016/straight_voice/Hybrid_duration_experiments/dnn_tts_release/lstm_rnn/data/label_state_align/AMidsummerNightsDream_000_000.lab']
+    output_file_list = ['/afs/inf.ed.ac.uk/group/cstr/projects/blizzard_entries/blizzard2016/straight_voice/Hybrid_duration_experiments/dnn_tts_release/lstm_rnn/data/binary_label_601/AMidsummerNightsDream_000_000.lab']
+    #output_file_list = ['/afs/inf.ed.ac.uk/group/cstr/projects/blizzard_entries/blizzard2016/straight_voice/Hybrid_duration_experiments/dnn_tts_release/lstm_rnn/data/dur/AMidsummerNightsDream_000_000.dur']
+
+    label_operater = HTSLabelNormalisation(qs_file_name)
+    label_operater.perform_normalisation(ori_file_list, output_file_list)
+    #feature_type="binary"
+    #unit_size = "phoneme"
+    #feat_size = "phoneme"
+    #label_operater.prepare_dur_data(ori_file_list, output_file_list, feature_type, unit_size, feat_size)
+    #label_operater.prepare_dur_data(ori_file_list, output_file_list, feature_type)
+    print   label_operater.dimension
+
