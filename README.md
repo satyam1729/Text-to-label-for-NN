@@ -1,8 +1,8 @@
 # Text-to-Speech
 
-Todo:
-Install or not libraries for festival 
+Todo:<br>
+Install or not libraries for festival<br> 
 
-To install:
-chmod 775 setup.sh
+To install:<br>
+chmod 775 setup.sh<br>
 ./setup.sh
